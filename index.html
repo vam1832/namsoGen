@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Namso Generator</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header class="title">
+        <h1>Random Card Numbers Generator</h1>
+        <p>Generate random test credit card numbers for testing, validation and/or verification purposes.</p>
+    </header>
+    <div class="container">
+        <div class="options-container">
+            <div class="user-options">
+                <input type="text" class="input_card" placeholder="4557">
+                <div class="card-options">
+                    <div class="date-options">
+                        <div class="container-date">
+                            <input type="checkbox" checked class="chkbxDateCard">
+                            <p>DATE</p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" class="asc">
+                            <p>ASC</p>
+                        </div>
+                        <div class="select-date">
+                            <select name="date" class="selectMonth">
+                                <option value="Random">Random</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="09">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            &nbsp;&nbsp;&nbsp;
+                            <select name="year" class="selectYear">
+                                <option value="Random">Random</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="code-quantity">
+                        <div class="container-checkbox">
+                            <input type="checkbox" checked class="chkbxCodeCard">
+                            <p>CVV</p>
+                        </div>
+                        <div class="inputs-options">
+                            <input type="text" placeholder="Random" class="inputCode">
+                            &nbsp;&nbsp;&nbsp;
+                            <input type="text" value="5" class="quantityCards">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="generate_cards" onclick="generateCards()">Generar</button>
+            </div>
+        </div>
+        <div class="cards-container">
+            <textarea name="cards" class="generated_cards" cols="30" rows="15" placeholder="XXXXXXXXX"></textarea>
+        </div>
+    </div>
+    <script type="text/javascript" src="./scripts/generate_cards.js"></script>
+</body>
+</html>

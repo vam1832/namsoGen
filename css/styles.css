@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;350;400&display=swap');
+
+/* RESET */
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Heebo', sans-serif;
+  font-weight: 360;
+  box-sizing: border-box;
+}
+
+body{
+  zoom: 120%;
+}
+
+/* BACKGROUND */
+body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* HEADER */
+.title {
+  padding: 40px 0;
+  text-align: center;
+  grid-column: span 2;
+}
+
+/* CONTAINER BODY */
+.container {
+  grid-column: span 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  margin: 0 auto;
+}
+
+/* USER OPTIONS CONTAINER */
+.options-container {
+  text-align: center;
+
+}
+
+/* USER OPTIONS */
+.user-options {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-width: 300px;
+  min-height: 150px;
+  justify-content: space-between;
+}
+
+.card-options{
+  position: relative;
+  display: grid;
+}
+
+.date-options{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-date {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.container-date p {
+  font-size: 12px;
+  margin: auto 5px;
+}
+
+.select-date{
+  flex-grow: 2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.select-date select{
+  width: 80px;
+  height: 26px;
+  margin: 0.5rem 0px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.code-quantity{
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-around;
+}
+
+.code-quantity p {
+  font-size: 12px;
+}
+
+.code-quantity input[type='text']{
+  width: 80px;
+  height: 28px;
+  margin: 7px auto;
+  font-size: 14px;
+  padding-left: 3.5px;
+  border-radius: 5px;
+  border-width: thin;
+}
+
+.container-checkbox{
+  display: flex;
+  align-items: center;
+}
+
+.container-checkbox p{
+  margin-left: 7px;
+  font-family: 'Heebo', sans-serif;
+}
+
+.inputs-options{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* INPUT CARD */
+.user-options .input_card{
+  width: 300px;
+  height: 26px;
+  border-radius: 5px;
+  font-size: 16px;
+  padding-left: 3.5px;
+  border-width: thin;
+}
+
+/* BUTTON GENERATE */
+.user-options button {
+  height: 32px;
+  background-color: rgb(123, 123, 238);
+  border: none;
+  border-radius: 5px;
+  color: blanchedalmond;
+  font-family: 'Heebo', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.user-options button:hover{
+  background-color: rgb(157, 157, 245);
+}
+
+.cards-container {
+  width: 300px;
+  height: 150px;
+}
+
+.cards-container textarea{
+  width: 300px;
+  height: 150px;
+  padding: 8px 8px;
+  resize: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  border-radius: 5px;
+}
