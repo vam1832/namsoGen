@@ -174,4 +174,15 @@ body {
   body{
     zoom: 110%;
   }
+  .title {
+    padding: 20px 0;
+  }
+  
+  .cards-container textarea{
+    height: 300px;
+  }
+
+  .container {
+    padding: 20px 20px;
+  }
 }
