@@ -63,7 +63,7 @@ function ascCards(card) {
   }
 
   ;
-  n = 10 ** x;
+  let n = 10 ** x;
 
   if (x < 6) {
     let month = "";
@@ -129,8 +129,8 @@ function randomCard(card) {
   }
 
   ;
-  n = 10 ** x;
-  cardGenerated = "";
+  let n = 10 ** x;
+  let cardGenerated = "";
 
   do {
     let cardFilled = card;
