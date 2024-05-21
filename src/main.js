@@ -2,53 +2,43 @@
 
 function luhnChecksum(card) {
   function digitsOf(n) {
-    let digits = [];
-
-    for (var i = 0; i < n.length; i++) {
-      digits.push(parseInt(n[i]));
-    }
-
-    ;
-    return digits;
+    return n.split('').map(Number);
   }
-
-  ;
 
   function sumArr(arr) {
-    let acc = 0;
-
-    for (let i = 0; i < arr.length; i++) {
-      acc += arr[i];
-    }
-
-    return acc;
+    return arr.reduce((a, b) => a + b, 0);
   }
 
-  ;
   let digits = digitsOf(card);
   let oddDigits = [];
   let evenDigits = [];
 
-  for (let i = 1; i <= digits.length; i++) {
-    i % 2 === 0 ? oddDigits.push(digits[i - 1]) : evenDigits.push(digits[i - 1]);
+  // Separar los dígitos en posiciones pares e impares
+  for (let i = 0; i < digits.length; i++) {
+    if ((digits.length - i) % 2 === 0) {
+      evenDigits.push(digits[i]);
+    } else {
+      oddDigits.push(digits[i]);
+    }
   }
 
-  ;
   let checksum = 0;
   checksum += sumArr(oddDigits);
+
   evenDigits.forEach(digit => {
-    checksum += sumArr(digitsOf((digit * 2).toString()));
+    let double = digit * 2;
+    if (double > 9) {
+      double -= 9;
+    }
+    checksum += double;
   });
+
   return checksum % 10;
 }
-
-;
 
 function isLuhnValid(card) {
   return luhnChecksum(card) === 0;
 }
-
-;
 
 function ascCards(card) {
   let cards = [];
@@ -58,11 +48,8 @@ function ascCards(card) {
     if (card[i] === "x") {
       x += 1;
     }
-
-    ;
   }
 
-  ;
   let n = 10 ** x;
 
   if (x < 6) {
@@ -94,28 +81,18 @@ function ascCards(card) {
         cardFilled = cardFilled.replace(/x/, c);
       }
 
-      ;
-
       if (isLuhnValid(cardFilled)) {
         cards.push(cardFilled + month + year);
       }
-
-      ;
     }
-
-    ;
   }
 
   return cards;
 }
 
-;
-
 function ranRange(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-
-;
 
 function randomCard(card) {
   let x = 0;
@@ -124,11 +101,8 @@ function randomCard(card) {
     if (card[i] === "x") {
       x += 1;
     }
-
-    ;
   }
 
-  ;
   let n = 10 ** x;
   let cardGenerated = "";
 
@@ -140,19 +114,13 @@ function randomCard(card) {
       cardFilled = cardFilled.replace(/x/, c);
     }
 
-    ;
-
     if (isLuhnValid(cardFilled)) {
       cardGenerated = cardFilled;
     }
-
-    ;
-  } while (cardGenerated.length == 0);
+  } while (cardGenerated.length === 0);
 
   return cardGenerated;
 }
-
-;
 
 function randomCardQuantity(card, quantity) {
   let textWithCards = "";
@@ -181,7 +149,7 @@ function randomCardQuantity(card, quantity) {
     }
 
     if (chkbxCodeCard.checked) {
-      if (inputCode.value.length == 0) {
+      if (inputCode.value.length === 0) {
         code = "|" + ranRange(100, 999).toString().padStart(3, 0);
       } else {
         code = "|" + inputCode.value;
@@ -191,11 +159,8 @@ function randomCardQuantity(card, quantity) {
     textWithCards += randomCard(card) + month + year + code + "\n";
   }
 
-  ;
   return textWithCards;
 }
-
-;
 
 function generateCards() {
   const inputCard = document.querySelector('.input_card').value;
@@ -213,8 +178,10 @@ document.addEventListener("click", function () {
   const inputCardIncomplete = document.querySelector('.input_card').value;
 
   if (inputCardIncomplete.length >= 4 && inputCardIncomplete.match(/[^x+\d]/) === null) {
-    document.querySelector('.input_card').value = inputCardIncomplete.padEnd(16, "x");
+    if (inputCardIncomplete.charAt(0) === '3') {
+      document.querySelector('.input_card').value = inputCardIncomplete.padEnd(15, "x");
+    } else {
+      document.querySelector('.input_card').value = inputCardIncomplete.padEnd(16, "x");
+    }
   }
-
-  ;
 });
